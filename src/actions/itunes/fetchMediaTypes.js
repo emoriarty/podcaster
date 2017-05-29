@@ -5,6 +5,9 @@ import {
 } from '../../actionTypes';
 import yqlJsonp from '../../utils/yqlJsonp';
 import config from '../../../config/app.js';
+import { normalize, schema } from 'normalizr';
+
+const mediaType = new schema.Entity('mediaTypes');
 
 const request = () => ({
   type: FETCH_MEDIA_TYPES
@@ -23,8 +26,12 @@ const receiveFail = (error) => ({
 const fetchMediaTypes = () => dispatch => {
   dispatch(request());
   return yqlJsonp(`${config.itunes.provider.rss}/media-types.json`)
-    .then(data => dispatch(receiveSuccess(data)))
-    .catch(error => dispatch(receiveFail(error)));
+    .then(data => dispatch(
+      receiveSuccess(normalize(data, [mediaType]))
+    ))
+    .catch(error => dispatch(
+      receiveFail(error)
+    ));
 };
 
 export default fetchMediaTypes;

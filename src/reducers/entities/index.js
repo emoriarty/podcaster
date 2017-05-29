@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
 import countries from './countries';
-import entities from './entities';
 import mediaTypes from './mediaTypes';
 
-const app = combineReducers({
-  entities,
+const entities = combineReducers({
   countries,
   mediaTypes
 });
 
-export default app;
+export default entities;

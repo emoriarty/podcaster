@@ -1,7 +1,7 @@
 import {
-  FETCH_COUNTRIES,
-  FETCH_COUNTRIES_SUCCESS,
-  FETCH_COUNTRIES_FAIL
+  FETCH_MEDIA_TYPES,
+  FETCH_MEDIA_TYPES_SUCCESS,
+  FETCH_MEDIA_TYPES_FAIL
 } from '../actionTypes';
 import { merge } from 'ramda';
 
@@ -13,16 +13,16 @@ const initialState = {
 
 const countries = (state = initialState, action) => {
   switch (action.type) {
-  case FETCH_COUNTRIES:
+  case FETCH_MEDIA_TYPES:
     return merge(state, {
       isFetching: true
     });
-  case FETCH_COUNTRIES_SUCCESS:
+  case FETCH_MEDIA_TYPES_SUCCESS:
     return merge(state, {
       ids: action.payload.result,
       isFetching: false
     });
-  case FETCH_COUNTRIES_FAIL:
+  case FETCH_MEDIA_TYPES_FAIL:
     return merge(state, {
       error: action.error,
       isFetching: false

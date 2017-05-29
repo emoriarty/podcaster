@@ -1,8 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import appReducer from './reducers';
-import { fetchCountries } from './actions';
+import { fetchCountries, fetchMediaTypes } from './actions';
 
 const loggerMiddleware = createLogger();
 
@@ -11,27 +14,27 @@ window.addEventListener('load', () => {
   //   'https://itunes.apple.com/search?term=carne&media=podcast',
   //   (err, response) => console.log(err, response)
   // );
-
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   let store = createStore(
     appReducer,
-    applyMiddleware(
-      thunkMiddleware,
-      loggerMiddleware
+    composeEnhancers(
+      applyMiddleware(
+        thunkMiddleware,
+        loggerMiddleware
+      )
     )
   );
 
-  console.log('initialState', store.getState());
-
-  const unsubscribe = store.subscribe(() => console.log(store.getState()));
+  ReactDOM.render(
+    <Provider store={store}>
+      <h1>hola</h1>
+    </Provider>,
+    document.getElementById('app')
+  );
 
   store
-    .dispatch(fetchCountries())
-    .then(data => {
-      console.log('success', data);
-    })
-    .catch(reason => {
-      console.error(reason);
-    });
+    .dispatch(fetchCountries());
 
-  unsubscribe();
+  store
+    .dispatch(fetchMediaTypes());
 });
