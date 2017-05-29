@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fetch media types from itunes creates FETCH_COUNTRIES_SUCCESS when fetching media types 1`] = `
+Array [
+  Object {
+    "type": "itunes/FETCH_COUNTRIES",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "country_code": "al",
+        "currency_format": "$<%= price %>",
+        "currency_seperator": ".",
+        "decimal": true,
+        "default_price": 0.99,
+        "enabled": true,
+        "flag_icon": "/images/flags/alb.png",
+        "language": "en-GB",
+        "navbar": "gb",
+        "region": "Europe",
+        "search_country": "uk",
+        "stores": Object {
+          "apps": true,
+          "books": true,
+          "macapps": true,
+          "movie": false,
+          "music": false,
+          "podcast": true,
+          "tv": false,
+        },
+        "translation_key": "al",
+      },
+      Object {
+        "country_code": "cz",
+        "currency_format": "$<%= price %>",
+        "currency_seperator": ".",
+        "decimal": true,
+        "default_price": 0.99,
+        "enabled": true,
+        "flag_icon": "/images/flags/cze.png",
+        "language": "en-GB",
+        "region": "Europe",
+        "search_country": "us",
+        "stores": Object {
+          "apps": true,
+          "books": true,
+          "macapps": true,
+          "movie": true,
+          "music": true,
+          "podcast": true,
+          "tv": false,
+        },
+        "translation_key": "cz",
+      },
+    ],
+    "type": "itunes/FETCH_COUNTRIES_SUCCESS",
+  },
+]
+`;

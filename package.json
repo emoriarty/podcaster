@@ -1,0 +1,50 @@
+{
+  "name": "podcaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint src",
+    "serve": "webpack-dev-server --inline --progress",
+    "test": "NODE_ENV=test jest",
+    "test:coverage": "NODE_ENV=test jest --coverage",
+    "test:update": "NODE_ENVOtest jest -u"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonp": "^0.2.1",
+    "normalizr": "^3.2.3",
+    "ramda": "^0.24.0",
+    "react": "^15.5.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-jsx": "^4.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^20.0.4",
+    "nock": "^9.0.13",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.2.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  }
+}

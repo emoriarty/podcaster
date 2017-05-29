@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fetch media types from itunes creates FETCH_MEDIA_TYPES_SUCCESS when fetching media types 1`] = `
+Array [
+  Object {
+    "type": "itunes/FETCH_MEDIA_TYPES",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "canBeExplicit": true,
+        "feed_types": Array [
+          Object {
+            "translation_key": "topaudiobooks",
+            "urlPrefix": "https://itunes.apple.com/<%= country_code %>/rss/topaudiobooks/<%= parameters %>",
+            "urlSuffix": "xml",
+          },
+        ],
+        "id": "50000024",
+        "store": "music",
+        "subgenres": Array [
+          Object {
+            "id": "",
+            "translation_key": "all",
+          },
+          Object {
+            "id": "50000041",
+            "translation_key": "arts&entertainment",
+          },
+        ],
+        "translation_key": "audiobooks",
+      },
+    ],
+    "type": "itunes/FETCH_MEDIA_TYPES_SUCCESS",
+  },
+]
+`;
