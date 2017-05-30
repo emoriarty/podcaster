@@ -4,22 +4,20 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import { yqlMiddleware } from './middleware';
 import appReducer from './reducers';
 import { fetchCountries, fetchMediaTypes } from './actions';
 
 const loggerMiddleware = createLogger();
 
 window.addEventListener('load', () => {
-  // jsonp(
-  //   'https://itunes.apple.com/search?term=carne&media=podcast',
-  //   (err, response) => console.log(err, response)
-  // );
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   let store = createStore(
     appReducer,
     composeEnhancers(
       applyMiddleware(
         thunkMiddleware,
+        yqlMiddleware,
         loggerMiddleware
       )
     )

@@ -1,40 +1,17 @@
-import {
-  FETCH_COUNTRIES,
-  FETCH_COUNTRIES_SUCCESS,
-  FETCH_COUNTRIES_FAIL
-} from '../../actionTypes';
-import yqlJsonp from '../../utils/yqlJsonp';
-import config from '../../../config/app.js';
-import { normalize, schema } from 'normalizr';
+import * as types from '../../actionTypes';
+import { YQL_CALL } from '../../middleware/yql';
+import { country } from '../../schemas';
 
-const country = new schema.Entity(
-  'countries',
-  {},
-  { idAttribute: 'country_code' }
-);
-const request = () => ({
-  type: FETCH_COUNTRIES
+const fetchCountries = () => ({
+  [YQL_CALL]: {
+    resource: 'countries',
+    schema: [country],
+    types: {
+      request: types.FETCH_COUNTRIES,
+      success: types.FETCH_COUNTRIES_SUCCESS,
+      fail: types.FETCH_COUNTRIES_FAIL
+    }
+  }
 });
-
-const receiveSuccess = (data) => ({
-  type: FETCH_COUNTRIES_SUCCESS,
-  payload: data
-});
-
-const receiveFail = (error) => ({
-  type: FETCH_COUNTRIES_FAIL,
-  error
-});
-
-const fetchCountries = () => dispatch => {
-  dispatch(request());
-  return yqlJsonp(`${config.itunes.provider.rss}/countries.json`)
-    .then(data => dispatch(
-      receiveSuccess(normalize(data, [country]))
-    ))
-    .catch(error => dispatch(
-      receiveFail(error))
-    );
-};
 
 export default fetchCountries;

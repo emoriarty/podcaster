@@ -6,7 +6,10 @@ module.exports = {
     port: 9000
   },
   devtool: 'eval-source-map',
-  entry: './src/index.js',
+  entry: [
+    'babel-polyfill',
+    './src/index.js'
+  ],
   module: {
     rules: [{
       test: /.js$/,
@@ -18,4 +21,4 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   }
-}
+};
