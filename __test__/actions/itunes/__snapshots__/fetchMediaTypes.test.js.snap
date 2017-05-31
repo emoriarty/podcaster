@@ -1,8 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Fetch media types from itunes creates FETCH_MEDIA_TYPES_SUCCESS when fetching media types 1`] = `
+exports[`FetchMediaTypes action dispatchs actions properly 1`] = `
 Array [
   Object {
+    "payload": Object {
+      "resource": "media-types",
+    },
     "type": "itunes/FETCH_MEDIA_TYPES",
   },
   Object {

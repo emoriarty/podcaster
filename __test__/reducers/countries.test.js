@@ -8,7 +8,7 @@ describe('countries reducer', () => {
       .toMatchSnapshot()
   );
 
-  it('when FETCH_COUNTRIES the on going property true', () => {
+  it('when action FETCH_COUNTRIES sets isFecthing property to true', () => {
     const action = {
       type: types.FETCH_COUNTRIES
     };

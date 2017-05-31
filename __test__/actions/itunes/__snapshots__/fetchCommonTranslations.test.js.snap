@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetchCommonTranslations dispatchs actions properly 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "resource": "data/lang/en/common",
+    },
+    "type": "itunes/FETCH_COMMON_TRANSLATIONS",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "Affiliate_Id": "Affiliate ID",
+        "Country": "Country",
+        "Feed_Type": "Feed Type",
+        "Genre": "Genre",
+        "Media_Type": "Media Type",
+        "Network": "Network",
+        "Size": "Size",
+        "feed_country": Object {
+          "ae": "United Arab Emirates",
+          "ag": "Antigua and Barbuda",
+        },
+      },
+    ],
+    "type": "itunes/FETCH_COMMON_TRANSLATIONS_SUCCESS",
+  },
+]
+`;

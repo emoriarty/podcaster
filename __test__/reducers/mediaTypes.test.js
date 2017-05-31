@@ -8,7 +8,7 @@ describe('mediaTypes reducer', () => {
       .toMatchSnapshot()
   );
 
-  it('when FETCH_MEDIA_TYPES the on going property true', () => {
+  it('when action FETCH_MEDIA_TYPES sets isFecthing property to true', () => {
     const action = {
       type: types.FETCH_MEDIA_TYPES
     };

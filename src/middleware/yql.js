@@ -35,7 +35,7 @@ const yql = store => next => async action => {
 
   const result = next({
     type: types.success,
-    payload: normalize(response, schema)
+    payload: schema ? normalize(response, schema) : response
   });
   return result;
 };

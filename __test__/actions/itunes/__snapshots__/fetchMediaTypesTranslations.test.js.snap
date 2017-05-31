@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetchMediaTypesTranslations dispatchs actions properly 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "resource": "data/lang/en/media-types",
+    },
+    "type": "itunes/FETCH_MEDIA_TYPES_TRANSLATIONS",
+  },
+  Object {
+    "payload": Array [
+      Object {
+        "canBeExplicit": true,
+        "feed_types": Array [
+          Object {
+            "translation_key": "topaudiobooks",
+            "urlPrefix": "https://itunes.apple.com/<%= country_code %>/rss/topaudiobooks/<%= parameters %>",
+            "urlSuffix": "xml",
+          },
+        ],
+        "id": "50000024",
+        "store": "music",
+        "subgenres": Array [
+          Object {
+            "id": "",
+            "translation_key": "all",
+          },
+          Object {
+            "id": "50000041",
+            "translation_key": "arts&entertainment",
+          },
+        ],
+        "translation_key": "audiobooks",
+      },
+    ],
+    "type": "itunes/FETCH_MEDIA_TYPES_TRANSLATIONS_SUCCESS",
+  },
+]
+`;
