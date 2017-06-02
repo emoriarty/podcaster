@@ -13,8 +13,10 @@ function yqlJsonp (url) {
 
       jsonp(yqlUrl, (err, { query: { results } }) => {
         err && reject(err)
-        const data = 'json' in results.json ? results.json.json : results.json
-        resolve(data.length > 0 ? data : {})
+        const data = 'json' in results.json
+          ? results.json.json
+          : results.json
+        resolve(data)
       })
     } catch (err) {
       reject(err)

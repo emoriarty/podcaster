@@ -22,16 +22,24 @@ class App extends Component {
   componentDidMount () {
     const { dispatch, language } = this.props
 
-    dispatch(fetchCommonTranslations(language))
-    dispatch(fetchCountries())
-    dispatch(fetchMediaTypes())
-    dispatch(fetchMediaTypesTranslations(language))
-
     this.loadingScreen = pleaseWait({
       logo,
       backgroundColor: '#1976D2',
       loadingHtml: '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
     })
+
+    dispatch(fetchCommonTranslations(language))
+    dispatch(fetchCountries())
+    dispatch(fetchMediaTypes())
+    dispatch(fetchMediaTypesTranslations(language))
+  }
+
+  componentWillReceiveProps (nextProps) {
+    console.log(nextProps.isLoading)
+    if (!nextProps.isLoading) {
+      console.log('finish', this.loadingScreen)
+      this.loadingScreen.finish()
+    }
   }
 
   render () {
@@ -53,12 +61,20 @@ class App extends Component {
   }
 }
 
+App.defaultProps = {
+  isLoading: true
+}
+
 App.propTypes = {
-  language: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  country: state.settings.country,
+  isLoading: state.countries.isFetching ||
+    state.mediaTypes.isFetching ||
+    state.translations.common.isFetching ||
+    state.translations.mediaTypes.isFetching,
   language: state.settings.language
 })
 

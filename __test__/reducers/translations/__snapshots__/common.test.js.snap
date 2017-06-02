@@ -9,15 +9,29 @@ Object {
 
 exports[`translations common reducer should handle FETCH_COMMON_TRANSLATIONS_SUCCESS 1`] = `
 Object {
-  "ids": undefined,
+  "data": Array [
+    Object {
+      "Affiliate_Id": "Affiliate ID",
+      "Country": "Country",
+      "Feed_Type": "Feed Type",
+      "Genre": "Genre",
+      "Media_Type": "Media Type",
+      "Network": "Network",
+      "Size": "Size",
+      "feed_country": Object {
+        "ae": "United Arab Emirates",
+        "ag": "Antigua and Barbuda",
+      },
+    },
+  ],
   "isFetching": false,
 }
 `;
 
 exports[`translations common reducer should return the initial state 1`] = `
 Object {
+  "data": Object {},
   "error": null,
-  "ids": Array [],
   "isFetching": false,
 }
 `;

@@ -3,7 +3,7 @@ import { merge } from 'ramda'
 
 const initialState = {
   error: null,
-  ids: [],
+  data: {},
   isFetching: false
 }
 
@@ -15,7 +15,7 @@ const mediaTypes = (state = initialState, action) => {
     })
   case types.FETCH_MEDIA_TYPES_TRANSLATIONS_SUCCESS:
     return merge(state, {
-      ids: action.payload.result,
+      date: action.payload,
       isFetching: false
     })
   case types.FETCH_MEDIA_TYPES_TRANSLATIONS_FAIL:
