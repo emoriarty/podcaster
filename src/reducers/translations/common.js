@@ -1,4 +1,4 @@
-import * as types from '../actionTypes'
+import * as types from '../../actionTypes'
 import { merge } from 'ramda'
 
 const initialState = {
@@ -7,18 +7,18 @@ const initialState = {
   isFetching: false
 }
 
-const countries = (state = initialState, action) => {
+const common = (state = initialState, action) => {
   switch (action.type) {
-  case types.FETCH_COUNTRIES:
+  case types.FETCH_COMMON_TRANSLATIONS:
     return merge(state, {
       isFetching: true
     })
-  case types.FETCH_COUNTRIES_SUCCESS:
+  case types.FETCH_COMMON_TRANSLATIONS_SUCCESS:
     return merge(state, {
       ids: action.payload.result,
       isFetching: false
     })
-  case types.FETCH_COUNTRIES_FAIL:
+  case types.FETCH_COMMON_TRANSLATIONS_FAIL:
     return merge(state, {
       error: action.error,
       isFetching: false
@@ -29,4 +29,4 @@ const countries = (state = initialState, action) => {
   }
 }
 
-export default countries
+export default common

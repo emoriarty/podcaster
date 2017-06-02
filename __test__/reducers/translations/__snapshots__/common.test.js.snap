@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`translations common reducer should handle FETCH_COMMON_TRANSLATIONS_FAIL 1`] = `
+Object {
+  "error": [Error],
+  "isFetching": false,
+}
+`;
+
+exports[`translations common reducer should handle FETCH_COMMON_TRANSLATIONS_SUCCESS 1`] = `
+Object {
+  "ids": undefined,
+  "isFetching": false,
+}
+`;
+
+exports[`translations common reducer should return the initial state 1`] = `
+Object {
+  "error": null,
+  "ids": Array [],
+  "isFetching": false,
+}
+`;

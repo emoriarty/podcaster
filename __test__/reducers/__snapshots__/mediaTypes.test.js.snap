@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mediaTypes reducer should handle FETCH_MEDIA_TYPES_FAIL 1`] = `
+Object {
+  "error": [Error],
+  "isFetching": false,
+}
+`;
+
 exports[`mediaTypes reducer should handle FETCH_MEDIA_TYPES_SUCCESS 1`] = `
 Object {
   "ids": undefined,

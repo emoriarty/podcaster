@@ -1,5 +1,5 @@
-import * as types from '../../actionTypes';
-import { YQL_CALL } from '../../middleware/yql';
+import * as types from '../../actionTypes'
+import { YQL_CALL } from '../../middleware/yql'
 
 const fetchCommonTranslations = (locale) => ({
   [YQL_CALL]: {
@@ -10,6 +10,6 @@ const fetchCommonTranslations = (locale) => ({
       fail: types.FETCH_COMMON_TRANSLATIONS_FAIL
     }
   }
-});
+})
 
-export default fetchCommonTranslations;
+export default fetchCommonTranslations

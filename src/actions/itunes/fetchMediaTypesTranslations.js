@@ -1,5 +1,5 @@
-import * as types from '../../actionTypes';
-import { YQL_CALL } from '../../middleware/yql';
+import * as types from '../../actionTypes'
+import { YQL_CALL } from '../../middleware/yql'
 
 const fetchMediaTypesTranslations = (locale) => ({
   [YQL_CALL]: {
@@ -10,6 +10,6 @@ const fetchMediaTypesTranslations = (locale) => ({
       fail: types.FETCH_MEDIA_TYPES_TRANSLATIONS_FAIL
     }
   }
-});
+})
 
-export default fetchMediaTypesTranslations;
+export default fetchMediaTypesTranslations

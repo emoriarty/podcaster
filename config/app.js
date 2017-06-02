@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'path'
 
 export default {
   paths: {
@@ -10,4 +10,4 @@ export default {
       service: ''
     }
   }
-};
+}

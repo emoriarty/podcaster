@@ -1,6 +1,6 @@
-import * as types from '../../actionTypes';
-import { YQL_CALL } from '../../middleware/yql';
-import { country } from '../../schemas';
+import * as types from '../../actionTypes'
+import { YQL_CALL } from '../../middleware/yql'
+import { country } from '../../schemas'
 
 const fetchCountries = () => ({
   [YQL_CALL]: {
@@ -12,6 +12,6 @@ const fetchCountries = () => ({
       fail: types.FETCH_COUNTRIES_FAIL
     }
   }
-});
+})
 
-export default fetchCountries;
+export default fetchCountries

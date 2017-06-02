@@ -1,6 +1,6 @@
-import * as types from '../../actionTypes';
-import { YQL_CALL } from '../../middleware/yql';
-import { mediaType } from '../../schemas';
+import * as types from '../../actionTypes'
+import { YQL_CALL } from '../../middleware/yql'
+import { mediaType } from '../../schemas'
 
 const fetchMediaTypes = () => ({
   [YQL_CALL]: {
@@ -12,6 +12,6 @@ const fetchMediaTypes = () => ({
       fail: types.FETCH_MEDIA_TYPES_FAIL
     }
   }
-});
+})
 
-export default fetchMediaTypes;
+export default fetchMediaTypes

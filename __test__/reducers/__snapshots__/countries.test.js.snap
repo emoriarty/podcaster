@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`countries reducer should handle FETCH_COUNTRIES_FAIL 1`] = `
+Object {
+  "error": [Error],
+  "isFetching": false,
+}
+`;
+
 exports[`countries reducer should handle FETCH_COUNTRIES_SUCCESS 1`] = `
 Object {
   "ids": undefined,
