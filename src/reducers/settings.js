@@ -1,6 +1,6 @@
 const initialState = {
   country: 'es',
-  language: 'es_ES'
+  language: 'es-ES'
 }
 
 const settings = (state = initialState, action) => {

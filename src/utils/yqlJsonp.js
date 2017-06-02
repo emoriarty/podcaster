@@ -10,9 +10,10 @@ function yqlJsonp (url) {
   return new Promise((resolve, reject) => {
     try {
       const yqlUrl = getYqlHost() + getYqlPath() + getYqlQuery(url)
-      jsonp(yqlUrl, (err, r) => {
+
+      jsonp(yqlUrl, (err, { query: { results } }) => {
         err && reject(err)
-        const data = r.query.results.json.json
+        const data = 'json' in results.json ? results.json.json : results.json
         resolve(data.length > 0 ? data : {})
       })
     } catch (err) {
