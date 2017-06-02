@@ -10,6 +10,7 @@ import {
 } from '../actions'
 import { pleaseWait } from 'please-wait'
 import logo from '../../assets/images/logo-256.png'
+import 'please-wait/src/please-wait.scss'
 
 class App extends Component {
   constructor () {
@@ -35,9 +36,7 @@ class App extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps.isLoading)
     if (!nextProps.isLoading) {
-      console.log('finish', this.loadingScreen)
       this.loadingScreen.finish()
     }
   }
