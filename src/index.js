@@ -1,38 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
-import { createLogger } from 'redux-logger'
-import { yqlMiddleware } from './middleware'
-import appReducer from './reducers'
-import { fetchCountries, fetchMediaTypes } from './actions'
+import configStore from './store'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import App from './containers/App'
+import '../styles/main.scss'
 
-const loggerMiddleware = createLogger()
+injectTapEventPlugin()
 
-window.addEventListener('load', () => {
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-  let store = createStore(
-    appReducer,
-    composeEnhancers(
-      applyMiddleware(
-        thunkMiddleware,
-        yqlMiddleware,
-        loggerMiddleware
-      )
-    )
-  )
+const store = configStore()
 
-  ReactDOM.render(
-    <Provider store={store}>
-      <h1>hola</h1>
-    </Provider>,
-    document.getElementById('app')
-  )
-
-  store
-    .dispatch(fetchCountries())
-
-  store
-    .dispatch(fetchMediaTypes())
-})
+ReactDOM.render(
+  <Provider store={store}>
+    <App>hola</App>
+  </Provider>,
+  document.getElementById('app')
+)
