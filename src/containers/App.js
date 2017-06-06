@@ -16,6 +16,12 @@ import {
 import { pleaseWait } from 'please-wait'
 import logo from '../../assets/images/logo-256.png'
 import 'please-wait/src/please-wait.scss'
+import { getPodcasts } from '../selectors/podcasts'
+import {
+  getCountry,
+  getLanguage
+} from '../selectors/settings'
+import { getFlag } from '../selectors/countries'
 
 export class App extends Component {
   componentDidMount () {
@@ -44,14 +50,14 @@ export class App extends Component {
     if (!nextProps.isLoading) {
       this.loadingScreen.finish()
     }
-    console.log(nextProps.podcastUrl)
-    if (nextProps.podcastUrl !== podcastUrl) {
+
+    if (nextProps.podcastUrl !== podcastUrl || nextProps.country !== country) {
       fetchPodcasts(nextProps.podcastUrl, country, 'limit=10/genre=1303/explicit=true')
     }
   }
 
   renderFlagButton () {
-    const { countryFlag } = this.props
+    const { flag } = this.props
 
     return (
       <FlatButton>
@@ -61,7 +67,7 @@ export class App extends Component {
             marginTop: 3
           }}
           size={30}
-          src={countryFlag}
+          src={flag && `${config.itunes.provider.rss}${flag}`}
         />
       </FlatButton>
     )
@@ -96,7 +102,7 @@ App.defaultProps = {
 
 App.propTypes = {
   country: PropTypes.string,
-  countryFlag: PropTypes.string,
+  flag: PropTypes.string,
   fetchCommonTranslations: PropTypes.func,
   fetchCountries: PropTypes.func,
   fetchMediaTypes: PropTypes.func,
@@ -108,20 +114,21 @@ App.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  const countryCode = state.settings.country
-  const countryFlag = countryCode in state.entities.countries
-    ? state.entities.countries[countryCode].flag_icon
-    : ''
+  const country = getCountry(state)
+  const language = getLanguage(state)
+  const flag = getFlag(state, country)
+  const podcasts = getPodcasts(state)
 
   return {
-    country: state.settings.country,
-    countryFlag: `${config.itunes.provider.rss}${countryFlag}`,
-    podcastUrl: '26' in state.entities.mediaTypes ? state.entities.mediaTypes['26'].feed_types.urlPrefix : '',
+    country,
+    flag,
     isLoading: state.countries.isFetching ||
       state.mediaTypes.isFetching ||
       state.translations.common.isFetching ||
       state.translations.mediaTypes.isFetching,
-    language: state.settings.language
+    language,
+    podcasts,
+    podcastUrl: 'podcasts' in state.entities.mediaTypes ? state.entities.mediaTypes.podcasts.feed_types.urlPrefix : ''
   }
 }
 

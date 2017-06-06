@@ -6,7 +6,11 @@ export const country = new schema.Entity(
   { idAttribute: 'country_code' }
 )
 
-export const mediaType = new schema.Entity('mediaTypes')
+export const mediaType = new schema.Entity(
+  'mediaTypes',
+  {},
+  { idAttribute: 'translation_key' }
+)
 
 export const podcast = new schema.Entity(
   'podcasts',
@@ -15,6 +19,7 @@ export const podcast = new schema.Entity(
     idAttribute: (value, parent, key) => {
       return value.id.attributes['im:id']
     }
-  })
+  }
+)
 
 export const podcastFeed = { feed: { entry: new schema.Array(podcast) } }
