@@ -1,14 +1,10 @@
 import React from 'react'
-import App from '../../src/containers/App'
-import renderer from 'react-test-renderer'
+import { App } from '../../src/containers/App'
 
 describe('App container', () => {
   it('shows default home page', () => {
-    const component = renderer.create(
-      <App />
-    )
-    const tree = component.toJSON()
-    expect(tree)
+    const component = shallow(<App language='es-ES' />)
+    expect(component)
       .toMatchSnapshot()
   })
 })

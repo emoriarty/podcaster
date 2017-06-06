@@ -3,7 +3,7 @@ import { YQL_CALL } from '../../middleware/yql'
 
 const fetchMediaTypesTranslations = (locale) => ({
   [YQL_CALL]: {
-    resource: `lang/${locale}/media-types`,
+    resource: `data/lang/${locale}/media-types`,
     types: {
       request: types.FETCH_MEDIA_TYPES_TRANSLATIONS,
       success: types.FETCH_MEDIA_TYPES_TRANSLATIONS_SUCCESS,

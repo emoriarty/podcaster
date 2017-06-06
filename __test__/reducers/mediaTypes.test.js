@@ -20,7 +20,7 @@ describe('mediaTypes reducer', () => {
   it('should handle FETCH_MEDIA_TYPES_SUCCESS', () => {
     const action = {
       type: types.FETCH_MEDIA_TYPES_SUCCESS,
-      payload: mockResponse.query.results.json.json
+      payload: { result: mockResponse.query.results.json.json }
     }
     expect(reducer([], action))
       .toMatchSnapshot()

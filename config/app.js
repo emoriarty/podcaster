@@ -6,7 +6,7 @@ export default {
   },
   itunes: {
     provider: {
-      rss: 'https://rss.itunes.apple.com/data',
+      rss: 'https://rss.itunes.apple.com',
       service: ''
     }
   }

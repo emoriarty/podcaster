@@ -4,7 +4,7 @@ exports[`fetchCountries dispatchs actions properly 1`] = `
 Array [
   Object {
     "payload": Object {
-      "resource": "countries",
+      "resource": "data/countries",
     },
     "type": "itunes/FETCH_COUNTRIES",
   },

@@ -3,7 +3,7 @@ import { YQL_CALL } from '../../middleware/yql'
 
 const fetchCommonTranslations = (locale) => ({
   [YQL_CALL]: {
-    resource: `lang/${locale}/common`,
+    resource: `data/lang/${locale}/common`,
     types: {
       request: types.FETCH_COMMON_TRANSLATIONS,
       success: types.FETCH_COMMON_TRANSLATIONS_SUCCESS,

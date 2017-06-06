@@ -20,7 +20,7 @@ describe('countries reducer', () => {
   it('should handle FETCH_COUNTRIES_SUCCESS', () => {
     const action = {
       type: types.FETCH_COUNTRIES_SUCCESS,
-      payload: mockResponse.query.results.json.json
+      payload: { result: mockResponse.query.results.json.json }
     }
     expect(reducer([], action))
       .toMatchSnapshot()

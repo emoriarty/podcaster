@@ -4,7 +4,7 @@ import { country } from '../../schemas'
 
 const fetchCountries = () => ({
   [YQL_CALL]: {
-    resource: 'countries',
+    resource: 'data/countries',
     schema: [country],
     types: {
       request: types.FETCH_COUNTRIES,

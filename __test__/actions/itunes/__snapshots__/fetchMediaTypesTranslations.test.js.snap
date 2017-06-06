@@ -4,7 +4,7 @@ exports[`fetchMediaTypesTranslations dispatchs actions properly 1`] = `
 Array [
   Object {
     "payload": Object {
-      "resource": "lang/en/media-types",
+      "resource": "data/lang/en/media-types",
     },
     "type": "itunes/FETCH_MEDIA_TYPES_TRANSLATIONS",
   },

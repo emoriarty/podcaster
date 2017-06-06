@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`entitites podcasts reducer should handle FETCH_PODCASTS_SUCCESS 1`] = `undefined`;
+
+exports[`entitites podcasts reducer should return the initial state 1`] = `Object {}`;

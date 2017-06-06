@@ -1,4 +1,4 @@
-import reducer from '../../../src/reducers/mediaTypes'
+import reducer from '../../../src/reducers/entities/mediaTypes'
 import * as types from '../../../src/actionTypes'
 import mockResponse from '../../../src/utils/__mocks__/media-types'
 
@@ -11,7 +11,7 @@ describe('entitites mediaTypes reducer', () => {
   it('should handle FETCH_MEDIA_TYPES_SUCCESS', () => {
     const action = {
       type: types.FETCH_MEDIA_TYPES_SUCCESS,
-      payload: mockResponse.query.results.json.json
+      payload: { entities: mockResponse.query.results.json.json }
     }
     expect(reducer([], action))
       .toMatchSnapshot()

@@ -4,7 +4,7 @@ import { mediaType } from '../../schemas'
 
 const fetchMediaTypes = () => ({
   [YQL_CALL]: {
-    resource: 'media-types',
+    resource: 'data/media-types',
     schema: [mediaType],
     types: {
       request: types.FETCH_MEDIA_TYPES,

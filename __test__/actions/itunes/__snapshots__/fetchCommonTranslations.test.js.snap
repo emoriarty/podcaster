@@ -4,7 +4,7 @@ exports[`fetchCommonTranslations dispatchs actions properly 1`] = `
 Array [
   Object {
     "payload": Object {
-      "resource": "lang/en/common",
+      "resource": "data/lang/en/common",
     },
     "type": "itunes/FETCH_COMMON_TRANSLATIONS",
   },
