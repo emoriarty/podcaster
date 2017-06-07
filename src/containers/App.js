@@ -25,8 +25,7 @@ import { getMediaTypeUrl } from '../selectors/mediaTypes'
 import { isFetching as isFetchingCountries } from '../selectors/countries'
 import { isFetching as isFetchingMediaTypes } from '../selectors/mediaTypes'
 import {
-  isFetchingMediaType as isFetchingMediaTypeTranslation,
-  isFetchingCommon as isFetchingCommonTranslation,
+  isFetching as isFetchingTranslations,
   getTranslations
 } from '../selectors/translations'
 
@@ -140,8 +139,7 @@ const mapStateToProps = (state) => {
     flag,
     isLoading: isFetchingCountries(state) ||
       isFetchingMediaTypes(state) ||
-      isFetchingCommonTranslation(state) ||
-      isFetchingMediaTypeTranslation(state),
+      isFetchingTranslations(state),
     language,
     podcasts,
     podcastsUrl,
