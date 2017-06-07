@@ -22,6 +22,11 @@ import {
   getLanguage
 } from '../selectors/settings'
 import { getFlag } from '../selectors/countries'
+import { getMediaTypeUrl } from '../selectors/mediaTypes'
+import { isFetching as isFetchingCountries } from '../selectors/countries'
+import { isFetching as isFetchingMediaTypes } from '../selectors/mediaTypes'
+import { isFetching as isFetchingCommonTrans } from '../selectors/translations/common'
+import { isFetching as isFetchingMediaTypeTrans } from '../selectors/translations/mediaTypes'
 
 export class App extends Component {
   componentDidMount () {
@@ -118,17 +123,18 @@ const mapStateToProps = (state) => {
   const language = getLanguage(state)
   const flag = getFlag(state, country)
   const podcasts = getPodcasts(state)
+  const podcastUrl = getMediaTypeUrl(state, 'podcasts')
 
   return {
     country,
     flag,
-    isLoading: state.countries.isFetching ||
-      state.mediaTypes.isFetching ||
-      state.translations.common.isFetching ||
-      state.translations.mediaTypes.isFetching,
+    isLoading: isFetchingCountries(state) ||
+      isFetchingMediaTypes(state) ||
+      isFetchingCommonTrans(state) ||
+      isFetchingMediaTypeTrans(state),
     language,
     podcasts,
-    podcastUrl: 'podcasts' in state.entities.mediaTypes ? state.entities.mediaTypes.podcasts.feed_types.urlPrefix : ''
+    podcastUrl
   }
 }
 

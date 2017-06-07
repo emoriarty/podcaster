@@ -12,7 +12,7 @@ Array [
     "payload": Object {
       "entities": Object {
         "mediaTypes": Object {
-          "50000024": Object {
+          "audiobooks": Object {
             "canBeExplicit": true,
             "feed_types": Array [
               Object {
@@ -38,7 +38,7 @@ Array [
         },
       },
       "result": Array [
-        "50000024",
+        "audiobooks",
       ],
     },
     "type": "itunes/FETCH_MEDIA_TYPES_SUCCESS",

@@ -23,7 +23,7 @@ describe('podcasts reducer', () => {
   it('should handle FETCH_PODCASTS_SUCCESS', () => {
     const action = {
       type: types.FETCH_PODCASTS_SUCCESS,
-      payload: { result: mockResponse.feed.entry }
+      payload: { result: mockResponse }
     }
     expect(reducer([], action))
       .toMatchSnapshot()

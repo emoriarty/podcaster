@@ -1,12 +1,15 @@
 import { createSelector } from 'reselect'
+import { nthArg, pathOr } from 'ramda'
 
-const getIds = state => state.countries.ids || []
-const getEntities = state => state.entities.countries || {}
+const getIds = pathOr([], ['countries', 'ids'])
+const getEntities = pathOr({}, ['entities', 'countries'])
 
 export const getFlag = createSelector(
-  [getEntities, (state, country) => country],
+  [getEntities, nthArg(1)],
   (entities, country) =>
     country in entities
       ? entities[country].flag_icon
       : null
 )
+
+export const isFetching = state => state.countries.isFetching
