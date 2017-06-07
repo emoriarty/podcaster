@@ -51,13 +51,13 @@ export class App extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    const { country, fetchPodcasts, podcastUrl } = this.props
+    const { country, fetchPodcasts, podcastsUrl } = this.props
     if (!nextProps.isLoading) {
       this.loadingScreen.finish()
     }
 
-    if (nextProps.podcastUrl !== podcastUrl || nextProps.country !== country) {
-      fetchPodcasts(nextProps.podcastUrl, country, 'limit=10/genre=1303/explicit=true')
+    if (nextProps.podcastsUrl !== podcastsUrl || nextProps.country !== country) {
+      fetchPodcasts(nextProps.podcastsUrl, country, 'limit=10/genre=1303/explicit=true')
     }
   }
 
@@ -123,7 +123,7 @@ const mapStateToProps = (state) => {
   const language = getLanguage(state)
   const flag = getFlag(state, country)
   const podcasts = getPodcasts(state)
-  const podcastUrl = getMediaTypeUrl(state, 'podcasts')
+  const podcastsUrl = getMediaTypeUrl(state, 'podcasts')
 
   return {
     country,
@@ -134,7 +134,7 @@ const mapStateToProps = (state) => {
       isFetchingMediaTypeTrans(state),
     language,
     podcasts,
-    podcastUrl
+    podcastsUrl
   }
 }
 

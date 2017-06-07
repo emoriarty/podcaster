@@ -15,7 +15,7 @@ const mediaTypes = (state = initialState, action) => {
     })
   case types.FETCH_MEDIA_TYPES_TRANSLATIONS_SUCCESS:
     return merge(state, {
-      date: action.payload,
+      data: action.payload,
       isFetching: false
     })
   case types.FETCH_MEDIA_TYPES_TRANSLATIONS_FAIL:
