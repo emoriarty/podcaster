@@ -1,9 +1,7 @@
 import reducer from '../../../src/reducers/entities/podcasts'
 import * as types from '../../../src/actionTypes'
-import jsonfile from 'jsonfile'
-import path from 'path'
 
-const mockResponse = jsonfile.readFileSync(path.resolve(__dirname, '../../../__mocks__/podcasts.json'))
+const mockResponse = readJson('podcasts')
 
 describe('entitites podcasts reducer', () => {
   it('should return the initial state', () =>

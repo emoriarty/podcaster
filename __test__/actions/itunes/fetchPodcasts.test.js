@@ -1,11 +1,9 @@
 import { fetchPodcasts } from '../../../src/actions'
 import configureStore from 'redux-mock-store'
 import { rssMiddleware } from '../../../src/middleware'
-import jsonfile from 'jsonfile'
-import path from 'path'
 
 const mockStore = configureStore([ rssMiddleware ])
-const response = jsonfile.readFileSync(path.resolve(__dirname, '../../../__mocks__/podcasts.json'))
+const response = readJson('podcasts')
 
 fetch.mockResponse(JSON.stringify(response))
 

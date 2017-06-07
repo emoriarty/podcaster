@@ -1,10 +1,9 @@
 import path from 'path'
+import readJson from '../../../__test__/helpers/readJson'
 
 const yqlJsonp = function (url) {
   return new Promise((resolve, reject) => {
-    const r = require(path.resolve(
-      __dirname, getFilename(url)
-    )).default
+    const r = readJson(getFilename(url))
     resolve(r.query.results.json.json)
   })
 }
@@ -15,7 +14,7 @@ function getFilename (url) {
   if (lastPart.indexOf('.') >= 0) {
     lastPart = lastPart.split('.')[0]
   }
-  return lastPart.toLowerCase() + '.js'
+  return lastPart.toLowerCase()
 }
 
 export default yqlJsonp
