@@ -20,10 +20,14 @@ import {
   getCountry,
   getLanguage
 } from '../selectors/settings'
-import { getFlag } from '../selectors/countries'
-import { getMediaTypeUrl } from '../selectors/mediaTypes'
-import { isFetching as isFetchingCountries } from '../selectors/countries'
-import { isFetching as isFetchingMediaTypes } from '../selectors/mediaTypes'
+import {
+  isFetching as isFetchingCountries,
+  getFlag
+} from '../selectors/countries'
+import {
+  isFetching as isFetchingMediaTypes,
+  getMediaTypeUrl
+} from '../selectors/mediaTypes'
 import {
   isFetching as isFetchingTranslations,
   getTranslations
@@ -96,7 +100,7 @@ export class App extends Component {
               />
               <h2>{translations['toppodcasts']}</h2>
               <ul>
-                { 
+                {
                   podcasts.map(podcast =>
                     <li key={podcast.id.attributes['im:id']}>{podcast.title.label}</li>
                   )

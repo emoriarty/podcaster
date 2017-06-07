@@ -14,33 +14,33 @@ const MEDIA_TYPE_TYPES = {
 
 const isFetching = types => (state = false, action) => {
   switch (action.type) {
-    case types.start:
-      return true
-    case types.success:
-    case types.fail:
-      return false
-    default:
-      return state
+  case types.start:
+    return true
+  case types.success:
+  case types.fail:
+    return false
+  default:
+    return state
   }
 }
 
 const data = (state = {}, action) => {
   switch (action.type) {
-    case types.FETCH_COMMON_TRANSLATIONS_SUCCESS:
-    case types.FETCH_MEDIA_TYPES_TRANSLATIONS_SUCCESS:
-      return { ...state, ...action.payload }
-    default: 
-      return state
+  case types.FETCH_COMMON_TRANSLATIONS_SUCCESS:
+  case types.FETCH_MEDIA_TYPES_TRANSLATIONS_SUCCESS:
+    return { ...state, ...action.payload }
+  default:
+    return state
   }
 }
 
 const error = (state = null, action) => {
   switch (action.type) {
-    case types.FETCH_COMMON_TRANSLATIONS_FAIL:
-    case types.FETCH_MEDIA_TYPES_TRANSLATIONS_FAIL:
-      return action.error
-    default: 
-      return state
+  case types.FETCH_COMMON_TRANSLATIONS_FAIL:
+  case types.FETCH_MEDIA_TYPES_TRANSLATIONS_FAIL:
+    return action.error
+  default:
+    return state
   }
 }
 

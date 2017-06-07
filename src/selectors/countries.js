@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 import { nthArg, pathOr } from 'ramda'
 
-const getIds = pathOr([], ['countries', 'ids'])
+// const getIds = pathOr([], ['countries', 'ids'])
 const getEntities = pathOr({}, ['entities', 'countries'])
 
 export const getFlag = createSelector(

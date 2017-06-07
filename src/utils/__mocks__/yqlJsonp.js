@@ -1,4 +1,3 @@
-import path from 'path'
 import readJson from '../../../__test__/helpers/readJson'
 
 const yqlJsonp = function (url) {

@@ -17,11 +17,11 @@
     },
     "sourceType": "module"
   },
-  "globals": [
+  "globals": {
     "shallow": true,
     "render": true,
     "mount": true
-  ],
+  },
   "plugins": [
     "react",
     "jest",

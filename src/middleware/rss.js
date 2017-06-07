@@ -1,6 +1,6 @@
 import { normalize } from 'normalizr'
 
-export const RSS_CALL= '@@rss/CALL'
+export const RSS_CALL = '@@rss/CALL'
 
 const rss = store => next => async action => {
   const rssAction = action[RSS_CALL]
@@ -10,8 +10,6 @@ const rss = store => next => async action => {
 
   const {
     url,
-    country,
-    params,
     schema,
     types
   } = rssAction
@@ -19,8 +17,7 @@ const rss = store => next => async action => {
   next({
     type: types.request,
     payload: {
-      url,
-      params
+      url
     }
   })
 
@@ -39,7 +36,7 @@ const rss = store => next => async action => {
 
   const result = next({
     type: types.success,
-    payload: schema ? normalize(data, schema) : response
+    payload: schema ? normalize(data, schema) : data
   })
   return result
 }
