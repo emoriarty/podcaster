@@ -1,6 +1,7 @@
 import reducer from '../../../src/reducers/entities/countries'
 import * as types from '../../../src/actionTypes'
-import mockResponse from '../../../src/utils/__mocks__/countries'
+
+const mockResponse = readJson('countries')
 
 describe('entitites countries reducer', () => {
   it('should return the initial state', () =>

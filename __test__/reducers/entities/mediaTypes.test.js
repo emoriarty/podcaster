@@ -1,6 +1,7 @@
 import reducer from '../../../src/reducers/entities/mediaTypes'
 import * as types from '../../../src/actionTypes'
-import mockResponse from '../../../src/utils/__mocks__/media-types'
+
+const mockResponse = readJson('media-types')
 
 describe('entitites mediaTypes reducer', () => {
   it('should return the initial state', () =>

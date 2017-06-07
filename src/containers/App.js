@@ -7,10 +7,9 @@ import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
 import Avatar from 'material-ui/Avatar'
 import {
-  fetchCommonTranslations,
   fetchCountries,
   fetchMediaTypes,
-  fetchMediaTypesTranslations,
+  fetchTranslations,
   fetchPodcasts
 } from '../actions'
 import { pleaseWait } from 'please-wait'
@@ -25,16 +24,18 @@ import { getFlag } from '../selectors/countries'
 import { getMediaTypeUrl } from '../selectors/mediaTypes'
 import { isFetching as isFetchingCountries } from '../selectors/countries'
 import { isFetching as isFetchingMediaTypes } from '../selectors/mediaTypes'
-import { isFetching as isFetchingCommonTrans } from '../selectors/translations/common'
-import { isFetching as isFetchingMediaTypeTrans } from '../selectors/translations/mediaTypes'
+import {
+  isFetchingMediaType as isFetchingMediaTypeTranslation,
+  isFetchingCommon as isFetchingCommonTranslation,
+  getTranslations
+} from '../selectors/translations'
 
 export class App extends Component {
   componentDidMount () {
     const {
-      fetchCommonTranslations,
       fetchCountries,
       fetchMediaTypes,
-      fetchMediaTypesTranslations,
+      fetchTranslations,
       language
     } = this.props
 
@@ -44,10 +45,9 @@ export class App extends Component {
       loadingHtml: '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
     })
 
-    fetchCommonTranslations(language)
     fetchCountries()
     fetchMediaTypes()
-    fetchMediaTypesTranslations(language)
+    fetchTranslations(language)
   }
 
   componentWillReceiveProps (nextProps) {
@@ -57,7 +57,7 @@ export class App extends Component {
     }
 
     if (nextProps.podcastsUrl !== podcastsUrl || nextProps.country !== country) {
-      fetchPodcasts(nextProps.podcastsUrl, country, 'limit=10/genre=1303/explicit=true')
+      fetchPodcasts(nextProps.podcastsUrl, country, 'limit=25/explicit=true')
     }
   }
 
@@ -79,7 +79,12 @@ export class App extends Component {
   }
 
   render () {
-    const { isLoading } = this.props
+    const {
+      isLoading,
+      podcasts,
+      translations
+    } = this.props
+
     return (
       <div>
         {
@@ -90,9 +95,13 @@ export class App extends Component {
                 title='Podcaster'
                 iconElementRight={this.renderFlagButton()}
               />
-              <h2>Top</h2>
+              <h2>{translations['toppodcasts']}</h2>
               <ul>
-                <li>podcast 1</li>
+                { 
+                  podcasts.map(podcast =>
+                    <li key={podcast.id.attributes['im:id']}>{podcast.title.label}</li>
+                  )
+                }
               </ul>
             </div>
         }
@@ -108,14 +117,14 @@ App.defaultProps = {
 App.propTypes = {
   country: PropTypes.string,
   flag: PropTypes.string,
-  fetchCommonTranslations: PropTypes.func,
   fetchCountries: PropTypes.func,
   fetchMediaTypes: PropTypes.func,
-  fetchMediaTypesTranslations: PropTypes.func,
   fetchPodcasts: PropTypes.func,
+  fetchTranslations: PropTypes.func,
   language: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  podcastUrl: PropTypes.string
+  podcastsUrl: PropTypes.string,
+  translations: PropTypes.object
 }
 
 const mapStateToProps = (state) => {
@@ -124,26 +133,27 @@ const mapStateToProps = (state) => {
   const flag = getFlag(state, country)
   const podcasts = getPodcasts(state)
   const podcastsUrl = getMediaTypeUrl(state, 'podcasts')
+  const translations = getTranslations(state)
 
   return {
     country,
     flag,
     isLoading: isFetchingCountries(state) ||
       isFetchingMediaTypes(state) ||
-      isFetchingCommonTrans(state) ||
-      isFetchingMediaTypeTrans(state),
+      isFetchingCommonTranslation(state) ||
+      isFetchingMediaTypeTranslation(state),
     language,
     podcasts,
-    podcastsUrl
+    podcastsUrl,
+    translations
   }
 }
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({
-    fetchCommonTranslations,
     fetchCountries,
     fetchMediaTypes,
-    fetchMediaTypesTranslations,
+    fetchTranslations,
     fetchPodcasts
   }, dispatch)
 
