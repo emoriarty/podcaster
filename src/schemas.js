@@ -1,4 +1,5 @@
 import { schema } from 'normalizr'
+import flatten from 'flat'
 
 export const country = new schema.Entity(
   'countries',
@@ -16,9 +17,8 @@ export const podcast = new schema.Entity(
   'podcasts',
   {},
   {
-    idAttribute: (value, parent, key) => {
-      return value.id.attributes['im:id']
-    }
+    idAttribute: value => value.id.attributes['im:id'],
+    processStrategy: flatten
   }
 )
 

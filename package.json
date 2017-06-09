@@ -14,10 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "flat": "^2.0.1",
     "jsonp": "^0.2.1",
     "material-ui": "^0.18.1",
     "normalizr": "^3.2.3",
-    "please-wait": "0.0.5",
     "ramda": "^0.24.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
