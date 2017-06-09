@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --progress",
     "eslint": "eslint src",
     "start": "webpack-dev-server --inline --progress",
     "test": "NODE_ENV=test jest",
