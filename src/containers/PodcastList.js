@@ -40,7 +40,6 @@ class PodcastList extends Component {
       index =>
         items.push(<TwoLineLoadingListItem key={index} />)
     )
-    console.log(items)
     return items
   }
 
