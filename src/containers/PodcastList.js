@@ -27,11 +27,11 @@ class PodcastList extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    const { country, fetchPodcasts, podcastsUrl } = this.props
-
-    if (nextProps.podcastsUrl !== podcastsUrl || nextProps.country !== country) {
-      fetchPodcasts(nextProps.podcastsUrl, country, 'limit=50/explicit=true')
-    }
+    // const { country, fetchPodcasts, podcastsUrl } = this.props
+    //
+    // if (nextProps.podcastsUrl !== podcastsUrl || nextProps.country !== country) {
+    //   fetchPodcasts(nextProps.podcastsUrl, country, 'limit=50/explicit=true')
+    // }
   }
 
   renderLoadingItems () {

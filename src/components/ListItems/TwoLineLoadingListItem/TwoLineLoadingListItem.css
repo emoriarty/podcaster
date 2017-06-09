@@ -71,12 +71,12 @@
 .header-right,
 .subheader-right {
     width: auto;
-    left: 300px;
+    left: 100%;
     right: 0;
 }
 
 .subheader-right {
-    left: 230px;
+    left: 90%;
 }
 
 .subheader-bottom {
