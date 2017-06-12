@@ -13,6 +13,7 @@ import {
   getTranslations
 } from '../selectors/translations'
 import PodcastList from './PodcastList'
+import PodcastFilter from './PodcastFilter'
 import { Headline } from '../components/Texts'
 
 export class App extends Component {
@@ -55,6 +56,7 @@ export class App extends Component {
           <Headline>
             {translations['toppodcasts']}
           </Headline>
+          <PodcastFilter />
           <PodcastList />
         </AppContainer>
       </div>

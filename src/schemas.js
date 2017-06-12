@@ -10,7 +10,16 @@ export const country = new schema.Entity(
 export const mediaType = new schema.Entity(
   'mediaTypes',
   {},
-  { idAttribute: 'translation_key' }
+  {
+    idAttribute: 'translation_key',
+    processStrategy: value => ({
+      ...value,
+      subgenres: value.subgenres.map(sg => ({
+        ...sg,
+        translation_key: sg.translation_key.replace('&', '_')
+      }))
+    })
+  }
 )
 
 export const podcast = new schema.Entity(

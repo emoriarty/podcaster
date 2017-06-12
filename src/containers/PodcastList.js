@@ -30,7 +30,10 @@ export class PodcastList extends Component {
     const { country, fetchPodcasts, podcastsUrl } = this.props
 
     if (nextProps.podcastsUrl !== podcastsUrl || nextProps.country !== country) {
-      fetchPodcasts(nextProps.podcastsUrl, country, 'limit=50/explicit=true')
+      fetchPodcasts(
+        nextProps.podcastsUrl,
+        country
+      )
     }
   }
 

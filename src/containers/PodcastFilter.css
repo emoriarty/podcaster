@@ -1,0 +1,12 @@
+.podcast-filter {
+  margin: 0 auto 32px auto;
+  width: calc(100% - 32px);
+}
+
+.select-field {
+  width: 100% !important;
+}
+
+.toggle {
+  margin-top: 16px;
+}

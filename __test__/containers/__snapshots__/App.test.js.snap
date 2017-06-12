@@ -9,6 +9,7 @@ exports[`App container shows default home page 1`] = `
   />
   <AppContainer>
     <Headline />
+    <Connect(PodcastFilter) />
     <Connect(PodcastList) />
   </AppContainer>
 </div>
