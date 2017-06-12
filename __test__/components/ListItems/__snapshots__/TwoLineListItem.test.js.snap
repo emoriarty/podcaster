@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TwoLineListItem match snapshot 1`] = `
+<ListItem
+  autoGenerateNestedIndicator={true}
+  containerElement="span"
+  disableKeyboardFocus={false}
+  disabled={false}
+  initiallyOpen={false}
+  insetChildren={false}
+  leftAvatar={
+    <Avatar
+      size={40}
+      src="image"
+    />
+  }
+  nestedItems={Array []}
+  nestedLevel={0}
+  onKeyboardFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onNestedListToggle={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+  open={null}
+  primaryText="Primary text"
+  primaryTogglesNestedList={false}
+  secondaryText="secondaryText"
+  secondaryTextLines={1}
+/>
+`;

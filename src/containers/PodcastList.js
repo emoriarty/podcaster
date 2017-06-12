@@ -12,7 +12,7 @@ import {
   TwoLineLoadingListItem
 } from '../components/ListItems'
 
-class PodcastList extends Component {
+export class PodcastList extends Component {
   static propTypes = {
     country: PropTypes.string,
     podcasts: PropTypes.array,

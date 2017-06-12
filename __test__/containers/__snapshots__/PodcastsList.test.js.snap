@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PodcastList container match snapshot 1`] = `
+<List>
+  <TwoLineListItem
+    primaryText="podcast 1"
+  />
+  <TwoLineListItem
+    primaryText="podcast 2"
+  />
+  <TwoLineListItem
+    primaryText="podcast 3"
+  />
+</List>
+`;
