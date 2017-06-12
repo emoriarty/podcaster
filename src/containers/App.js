@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import AppBar from 'material-ui/AppBar'
+import { AppContainer } from '../components'
 import {
   fetchTranslations
 } from '../actions'
@@ -50,12 +51,12 @@ export class App extends Component {
           showMenuIconButton={false}
           title='Podcaster'
         />
-        <div className='content'>
+        <AppContainer>
           <Headline>
             {translations['toppodcasts']}
           </Headline>
           <PodcastList />
-        </div>
+        </AppContainer>
       </div>
     )
   }
