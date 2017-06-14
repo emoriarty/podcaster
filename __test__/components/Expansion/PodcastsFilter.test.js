@@ -1,5 +1,5 @@
 import React from 'react'
-import { PodcastFilter } from '../../src/containers/PodcastFilter'
+import { PodcastFilter } from '../../../src/components'
 
 const genres = [{
   id: '',

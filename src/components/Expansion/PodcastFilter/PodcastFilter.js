@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchPodcasts } from '../actions'
-import { getCountry } from '../selectors/settings'
-import { getMediaTypeUrl, getItemsLimit } from '../selectors/mediaTypes'
-import { getPodcastsGenres } from '../selectors/genres'
-import { getTranslations } from '../selectors/translations'
+import { fetchPodcasts } from '../../../actions'
+import { getCountry } from '../../../selectors/settings'
+import { getMediaTypeUrl, getItemsLimit } from '../../../selectors/mediaTypes'
+import { getPodcastsGenres } from '../../../selectors/genres'
+import { getTranslations } from '../../../selectors/translations'
+import { FilterPanel } from '..'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import Toggle from 'material-ui/Toggle'
@@ -61,42 +62,44 @@ export class PodcastFilter extends Component {
     const { genres, limits, translations } = this.props
 
     return (
-      <form className={styles.podcastFilter}>
-        <SelectField
-          className={styles.selectField}
-          floatingLabelFixed
-          floatingLabelText={translations['Genre']}
-          onChange={this.onChangeGenre}
-          value={this.state.genre}>
-          {
-            genres.map((genre, index) =>
-              <MenuItem
-                key={genre.id}
-                primaryText={genre.label}
-                value={genre.id} />
-            )
-          }
-        </SelectField>
-        <SelectField
-          className={styles.selectField}
-          floatingLabelFixed
-          floatingLabelText={translations['Size']}
-          onChange={this.onChangeLimit}
-          value={this.state.limit}>
-          {
-            limits.map((limit, index) =>
-              <MenuItem
-                key={index}
-                primaryText={limit}
-                value={limit} />
-            )
-          }
-        </SelectField>
-        <Toggle
-          className={styles.toggle}
-          label={translations['Explicit_Content']}
-          onToggle={this.onChangeExplicit} />
-      </form>
+      <FilterPanel label='Filter'>
+        <form className={styles.podcastFilter}>
+          <SelectField
+            className={styles.selectField}
+            floatingLabelFixed
+            floatingLabelText={translations['Genre']}
+            onChange={this.onChangeGenre}
+            value={this.state.genre}>
+            {
+              genres.map((genre, index) =>
+                <MenuItem
+                  key={genre.id}
+                  primaryText={genre.label}
+                  value={genre.id} />
+              )
+            }
+          </SelectField>
+          <SelectField
+            className={styles.selectField}
+            floatingLabelFixed
+            floatingLabelText={translations['Size']}
+            onChange={this.onChangeLimit}
+            value={this.state.limit}>
+            {
+              limits.map((limit, index) =>
+                <MenuItem
+                  key={index}
+                  primaryText={limit}
+                  value={limit} />
+              )
+            }
+          </SelectField>
+          <Toggle
+            className={styles.toggle}
+            label={translations['Explicit_Content']}
+            onToggle={this.onChangeExplicit} />
+        </form>
+      </FilterPanel>
     )
   }
 }

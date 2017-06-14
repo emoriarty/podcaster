@@ -8,8 +8,10 @@ exports[`App container shows default home page 1`] = `
     zDepth={1}
   />
   <AppContainer>
-    <Headline />
-    <Connect(PodcastFilter) />
+    <AppHeader>
+      <Headline />
+      <Connect(PodcastFilter) />
+    </AppHeader>
     <Connect(PodcastList) />
   </AppContainer>
 </div>

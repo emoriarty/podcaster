@@ -3,11 +3,13 @@ var path = require('path')
 module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'docs'),
-    port: 9000
+    port: 9000,
+    disableHostCheck: true // https://github.com/webpack/webpack-dev-server/issues/882#issuecomment-296436909
   },
   devtool: 'eval-source-map',
   entry: [
     'babel-polyfill',
+    'whatwg-fetch',
     './src/index.js'
   ],
   module: {

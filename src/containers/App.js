@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import AppBar from 'material-ui/AppBar'
-import { AppContainer } from '../components'
+import {
+  AppContainer,
+  AppWrapper,
+  PodcastFilter
+} from '../components'
 import {
   fetchTranslations
 } from '../actions'
@@ -13,7 +17,6 @@ import {
   getTranslations
 } from '../selectors/translations'
 import PodcastList from './PodcastList'
-import PodcastFilter from './PodcastFilter'
 import { Headline } from '../components/Texts'
 
 export class App extends Component {
@@ -53,10 +56,12 @@ export class App extends Component {
           title='Podcaster'
         />
         <AppContainer>
-          <Headline>
-            {translations['toppodcasts']}
-          </Headline>
-          <PodcastFilter />
+          <AppWrapper>
+            <Headline>
+              {translations['toppodcasts']}
+            </Headline>
+            <PodcastFilter />
+          </AppWrapper>
           <PodcastList />
         </AppContainer>
       </div>

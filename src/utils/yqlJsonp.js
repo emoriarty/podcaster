@@ -11,8 +11,16 @@ function yqlJsonp (url) {
     try {
       const yqlUrl = getYqlHost() + getYqlPath() + getYqlQuery(url)
 
-      jsonp(yqlUrl, (err, { query: { results } }) => {
-        err && reject(err)
+      jsonp(yqlUrl, (err, result) => {
+        if (err) {
+          reject(err)
+          return
+        }
+        const results = result.query.results
+        if (!results) {
+          reject(new Error(`No results from query: ${yqlUrl}`))
+          return
+        }
         const data = 'json' in results.json
           ? results.json.json
           : results.json
